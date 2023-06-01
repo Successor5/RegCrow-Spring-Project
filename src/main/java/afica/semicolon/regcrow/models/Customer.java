@@ -4,23 +4,26 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
-@AllArgsConstructor
-@Setter
-@Getter
-public class transaction {
+
+public class Customer {
     @Id
+    @Setter
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private long id;
     @OneToOne
-    private payment payment;
-    private long sellerId;
-    private Long buyerId;
-    private String description;
+//    public class User{
+    private BioData bioData;
+    private String firstname;
+    private String lastname;
+
+    private String profileImage;
     private LocalDateTime createdAt;
+    @OneToOne
+    private BankAccount bankAccount;
+
 
 }
+
